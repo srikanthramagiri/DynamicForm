@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { getInputFeild, getTextArea, getSelect} from './elements/utility'
+import { getInputFeild, getTextArea, getSelect } from "./elements/utility";
 
 export default function DynamicForm(data) {
   let [submitformData, setSubmitformData] = useState({});
@@ -31,11 +31,19 @@ export default function DynamicForm(data) {
             return getSelect(formEle, i, changeHandler);
           }
         })}
-        <Button style={{marginTop: '30px'}} variant="secondary" type="submit" disabled={!isValidForm}>
+        <Button
+          style={{ marginTop: "30px" }}
+          variant="secondary"
+          type="submit"
+          disabled={!isValidForm}
+        >
           submit
         </Button>
 
-        <div style={{marginTop: '30px'}}> submit data state: {JSON.stringify(submitformData)} </div>
+        <div style={{ marginTop: "30px" }}>
+          {" "}
+          submit data state: {JSON.stringify(submitformData)}{" "}
+        </div>
       </Form>
     </div>
   );
