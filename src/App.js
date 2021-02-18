@@ -1,9 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DynamicForm from "./components/home";
+import DynamicForm from "./Components/Home";
 import { Container } from "react-bootstrap";
 
-let formdata = {
+let formData = {
   fields: [
     {
       name: "firstname",
@@ -13,7 +13,7 @@ let formdata = {
       label: "First Name",
       validation: {
         regex: "^[a-zA-Zs]+$",
-        errormessage: "Not Valid First Name",
+        errorMessage: "Not Valid First Name",
       },
     },
     {
@@ -24,7 +24,7 @@ let formdata = {
       label: "Last Name",
       validation: {
         regex: "^[a-zA-Zs]+$",
-        errormessage: "Not valid Last Name",
+        errorMessage: "Not valid Last Name",
       },
     },
     {
@@ -35,7 +35,7 @@ let formdata = {
       label: "Age",
       validation: {
         regex: "^(0?[1-9]|[1-9][0-9]|[1][1-2][1-9]|100)$",
-        errormessage: "Not Valid Age",
+        errorMessage: "Not Valid Age",
       },
     },
     {
@@ -46,7 +46,7 @@ let formdata = {
       label: "Email",
       validation: {
         regex: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
-        errormessage: "Not Valid email",
+        errorMessage: "Not Valid email",
       },
     },
     {
@@ -57,7 +57,7 @@ let formdata = {
       values: ["India", "srilanka", "Algeria", "Andorra"],
       validation: {
         regex: "[^s] ",
-        errormessage: "please select country",
+        errorMessage: "please select country",
       },
     },
     {
@@ -70,7 +70,7 @@ let formdata = {
       cols: 50,
       validation: {
         regex: "(?:[A-Z0-9-]+.)+",
-        errormessage: "Not Valid Address",
+        errorMessage: "Not Valid Address",
       },
     },
   ],
@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <DynamicForm formdata={formdata} />
+        <DynamicForm formData={formData} />
       </Container>
     </div>
   );

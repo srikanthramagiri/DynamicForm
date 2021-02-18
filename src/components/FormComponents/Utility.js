@@ -1,7 +1,7 @@
 import React from 'react'
 import InputTextFeild from "./InputTextFeild";
-import InputAreaFeild from "./InputAreaFeild";
-import SelectFeild from "./selectFeild";
+import InputTextAreaFeild from "./InputTextAreaFeild";
+import SelectFeild from "./SelectFeild";
 
 export function getInputFeild(formEle, i, changeHandler) {
     let {
@@ -27,7 +27,7 @@ export function getInputFeild(formEle, i, changeHandler) {
       );
 }
 
-export function getTextArea(formEle, i, changeHandler) {
+export function getTextAreaFeild(formEle, i, changeHandler) {
     let {
         type,
         name,
@@ -39,7 +39,7 @@ export function getTextArea(formEle, i, changeHandler) {
         validation,
       } = formEle;
       return (
-        <InputAreaFeild
+        <InputTextAreaFeild
           key={i}
           type={type}
           name={name}
@@ -54,7 +54,7 @@ export function getTextArea(formEle, i, changeHandler) {
       );
 }
 
-export function getSelect(formEle, i, changeHandler) {
+export function getSelectFeild(formEle, i, changeHandler) {
     let { values, validation, name, label } = formEle;
     return (
       <SelectFeild
@@ -64,6 +64,6 @@ export function getSelect(formEle, i, changeHandler) {
         validation={validation}
         key={i}
         changeHandler={changeHandler}
-      ></SelectFeild>
+      />
     );
 }

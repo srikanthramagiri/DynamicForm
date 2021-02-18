@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Label from "./Label";
 import AlertError from "./AlertError";
+import PropTypes from "prop-types";
 
 export default function InputTextFeild(props) {
   let { name, type, placeholder, label, changeHandler, validation } = props;
-  let { regex, errormessage } = validation ? validation : {};
+  let { regex, errorMessage } = validation ? validation : {};
   let [isvalid, setIsValid] = useState(true);
   const inputHandler = (e) => {
     setIsValid(true);
   };
 
-  const blurHandlerValiation = (e) => {
+  const blurHandler = (e) => {
     if (e.target.value === "") {
       setIsValid(false);
     }
@@ -31,15 +32,15 @@ export default function InputTextFeild(props) {
             type={type}
             name={name}
             placeholder={placeholder}
-            onChange={inputHandler}
-            onBlur={blurHandlerValiation}
+            onChange={(e) => inputHandler(e)}
+            onBlur={(e) => blurHandler(e)}
             max={100}
           />
         </Col>
-        <Col lg={6}></Col>
+        <Col lg={6} />
         <Col lg={6}>
           {!isvalid ? (
-            <AlertError variant={"danger"} message={errormessage}></AlertError>
+            <AlertError variant={"danger"} message={errorMessage}></AlertError>
           ) : (
             ""
           )}
@@ -48,3 +49,12 @@ export default function InputTextFeild(props) {
     </Form.Group>
   );
 }
+
+InputTextFeild.protoTypes = {
+  name: PropTypes.string,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  changeHandler: PropTypes.func,
+  validation: PropTypes.object,
+};

@@ -2,31 +2,33 @@ import React, { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import AlertError from "./AlertError";
 import Label from "./Label";
+import PropTypes from "prop-types";
 
 export default function SelectFeild(props) {
   let { values, validation, label, name, changeHandler } = props;
-  let { regex, errormessage } = validation ? validation : {};
-  let [isValid, setIsValid] = useState(true);
+  let { regex, errorMessage } = validation ? validation : {};
+  let [isValidSelect, setIsValidSelect] = useState(true);
   let [country, setCountry] = useState();
 
-  const onchangeHandler = (e) => {
+  const onChangeHandler = (e) => {
     let reg = new RegExp(regex);
     if (e.target.value === "") {
-      setIsValid(false);
+      setIsValidSelect(false);
     } else {
-      setIsValid(true);
+      setIsValidSelect(true);
     }
     changeHandler(e);
     setCountry(e.target.value);
   };
 
-  const onBlurHandler = (e)=> {
+  const onBlurHandler = (e) => {
     if (e.target.value === "") {
-      setIsValid(false);
+      setIsValidSelect(false);
     } else {
-      setIsValid(true);
+      setIsValidSelect(true);
     }
-  }
+  };
+
   return (
     <Row>
       <Col lg={6} md={6}>
@@ -37,19 +39,19 @@ export default function SelectFeild(props) {
           as="select"
           value={country}
           name={name}
-          onChange={onchangeHandler}
-          onBlur = {onBlurHandler}
+          onChange={(e) => onChangeHandler(e)}
+          onBlur={(e) => onBlurHandler(e)}
         >
-          <option value="">select</option>
-          {values.map((i) => (
-            <option value={i}>{i}</option>
+          <option value="">Select</option>
+          {values.map((option) => (
+            <option value={option}>{option}</option>
           ))}
         </Form.Control>
       </Col>
-      <Col lg={6}></Col>
+      <Col lg={6} />
       <Col lg={6} md={6}>
-        {!isValid ? (
-          <AlertError variant={"danger"} message={errormessage}></AlertError>
+        {!isValidSelect ? (
+          <AlertError variant={"danger"} message={errorMessage} />
         ) : (
           ""
         )}
@@ -57,3 +59,11 @@ export default function SelectFeild(props) {
     </Row>
   );
 }
+
+SelectFeild.protoTypes = {
+  values: PropTypes.array,
+  validation: PropTypes.object,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  changeHandler: PropTypes.func,
+};

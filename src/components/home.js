@@ -1,48 +1,51 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { getInputFeild, getTextArea, getSelect } from "./elements/utility";
+import { getInputFeild, getTextAreaFeild, getSelectFeild } from "./FormComponents/Utility";
 
 export default function DynamicForm(data) {
-  let [submitformData, setSubmitformData] = useState({});
+  let [submitFormData, setSubmitFormData] = useState({});
   let [isValidForm, setIsValidForm] = useState(true);
+
   const changeHandler = (e) => {
-    setSubmitformData((prevState) => ({
+    setSubmitFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-  };
-  let { fields } = { ...data.formdata };
+  }
+
+  let { fields } = { ...data.formData };
   const formSubmit = (e) => {
     e.preventDefault();
-    console.log("submitformdata", submitformData);
-  };
+    console.log("submitFormdata", submitFormData);
+  }
 
   return (
     <div className="form-main">
       <Form onSubmit={formSubmit}>
-        {fields.map((formEle, i) => {
-          if (formEle.type === "text" || formEle.type === "number") {
-            return getInputFeild(formEle, i, changeHandler);
+        {fields.map((formElement, i) => {
+          if (formElement.type === "text" || formElement.type === "number") {
+            return getInputFeild(formElement, i, changeHandler);
           }
-          if (formEle.type === "text_area") {
-            return getTextArea(formEle, i, changeHandler);
+          if (formElement.type === "text_area") {
+            return getTextAreaFeild(formElement, i, changeHandler);
           }
-          if (formEle.type === "dropdown") {
-            return getSelect(formEle, i, changeHandler);
+          if (formElement.type === "dropdown") {
+            return getSelectFeild(formElement, i, changeHandler);
           }
         })}
         <Button
-          style={{ marginTop: "30px" }}
+          style={{marginTop: "30px"}}
           variant="secondary"
           type="submit"
           disabled={!isValidForm}
+          role="submit"
         >
           submit
         </Button>
 
-        <div style={{ marginTop: "30px" }}>
+        <div style={{ marginTop: "30px" }} role="presentation json data">
           {" "}
-          submit data state: {JSON.stringify(submitformData)}{" "}
+          Submit Data State: {JSON.stringify(submitFormData)}{" "}
         </div>
       </Form>
     </div>
