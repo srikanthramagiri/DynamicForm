@@ -14,8 +14,8 @@ describe('input text feild component', ()=> {
         expect(InputText).not.toBeNull()
     })
     it('change handler', ()=> {
-        InputText.simulate('change', {target: {value: 'ho.no.1-2-3'}})
-        
+        InputText.simulate('change', {target: {value: 'ho.no.1-2-3'}});
+        expect(changeHandlerSpy).not.toHaveBeenCalled()
     })
     it('blur handler', ()=> {
         InputText.simulate('blur', {target: {value: ''}})

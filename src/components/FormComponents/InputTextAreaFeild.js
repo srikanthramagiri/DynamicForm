@@ -21,13 +21,13 @@ export default function InputTextAreaFeild(props) {
   let [isValidText, setIsValidText] = useState(true);
   let [areaText, setAreaText] = useState();
 
-  let textAreaChangeHandler = (e) => {
+  const textAreaChangeHandler = (e) => {
     setIsValidText(true);
     setAreaText(e.target.value);
     changeHandler(e);
   };
 
-  let textAreaBlurHandler = (e) => {
+  const textAreaBlurHandler = (e) => {
     if (e.target.value === "") {
       setIsValidText(false);
     }

@@ -16,8 +16,4 @@ describe('input text Area feild component', ()=> {
         InputTextArea.simulate('change', {target: {value: 'ho.no.1-2-3'}})
         expect(changeHandlerSpy).toHaveBeenCalled()
     })
-    it('blur handler ', ()=> {
-        InputTextArea.simulate('blur', {target: {value: ''}})
-        
-    })
 })
