@@ -43,6 +43,7 @@ export default function InputTextAreaFeild(props) {
       <Col lg={6} md={6}>
         <Form.Control
           as="textarea"
+          data-test='input-text-area-feild'
           type={type}
           name={name}
           placeholder={placeholder}

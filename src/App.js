@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DynamicForm from "./Components/Home";
+import DynamicForm from "./Components/DynamicForm";
 import { Container } from "react-bootstrap";
 
 let formData = {

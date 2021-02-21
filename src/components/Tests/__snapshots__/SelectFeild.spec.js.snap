@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input text feild component should render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`input text feild should render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`select feild component should render correctly 1`] = `ShallowWrapper {}`;

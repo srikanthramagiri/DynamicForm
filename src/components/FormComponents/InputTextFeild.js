@@ -30,6 +30,7 @@ export default function InputTextFeild(props) {
         <Col lg={6} md={6}>
           <Form.Control
             type={type}
+            data-test='input-text-feild'
             name={name}
             placeholder={placeholder}
             onChange={(e) => inputHandler(e)}

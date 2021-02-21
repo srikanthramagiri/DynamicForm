@@ -36,15 +36,16 @@ export default function SelectFeild(props) {
       </Col>
       <Col lg={6} md={6}>
         <Form.Control
-          as="select"
+          as={'select'}
+          data-test='select-feild'
           value={country}
           name={name}
           onChange={(e) => onChangeHandler(e)}
           onBlur={(e) => onBlurHandler(e)}
         >
           <option value="">Select</option>
-          {values.map((option) => (
-            <option value={option}>{option}</option>
+          {values.map((option,i) => (
+            <option value={option} key={i}>{option}</option>
           ))}
         </Form.Control>
       </Col>

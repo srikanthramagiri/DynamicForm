@@ -16,20 +16,19 @@ export default function DynamicForm(data) {
   let { fields } = { ...data.formData };
   const formSubmit = (e) => {
     e.preventDefault();
-    console.log("submitFormdata", submitFormData);
   }
 
   return (
-    <div className="form-main">
-      <Form onSubmit={formSubmit}>
+    <div data-test='dynamic-form'>
+      <Form className= {'form'} data-test='form' onSubmit={formSubmit}>
         {fields.map((formElement, i) => {
-          if (formElement.type === "text" || formElement.type === "number") {
+          if (formElement.type === 'text' || formElement.type === 'number') {
             return getInputFeild(formElement, i, changeHandler);
           }
-          if (formElement.type === "text_area") {
+          if (formElement.type === 'text_area') {
             return getTextAreaFeild(formElement, i, changeHandler);
           }
-          if (formElement.type === "dropdown") {
+          if (formElement.type === 'dropdown') {
             return getSelectFeild(formElement, i, changeHandler);
           }
         })}
@@ -39,6 +38,7 @@ export default function DynamicForm(data) {
           type="submit"
           disabled={!isValidForm}
           role="submit"
+          className={'submit-button'}
         >
           submit
         </Button>
