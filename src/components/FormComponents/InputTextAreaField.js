@@ -4,7 +4,7 @@ import AlertError from "./AlertError";
 import Label from "./Label";
 import PropTypes from "prop-types"
 
-export default function InputTextAreaFeild(props) {
+export default function InputTextAreaField(props) {
   let {
     name,
     type,
@@ -43,7 +43,7 @@ export default function InputTextAreaFeild(props) {
       <Col lg={6} md={6}>
         <Form.Control
           as="textarea"
-          data-test='input-text-area-feild'
+          data-test='input-text-area-field'
           type={type}
           name={name}
           placeholder={placeholder}
@@ -66,7 +66,7 @@ export default function InputTextAreaFeild(props) {
   );
 }
 
-InputTextAreaFeild.prototype = {
+InputTextAreaField.propTypes = {
   name: PropTypes.string,
     type: PropTypes.string,
     placeholder: PropTypes.string,
@@ -78,7 +78,7 @@ InputTextAreaFeild.prototype = {
     validation: PropTypes.object
 }
 
-InputTextAreaFeild.defaultProps = {
+InputTextAreaField.defaultProps = {
     rows:  20,
     cols: 40
 }

@@ -4,15 +4,15 @@ import Label from "./Label";
 import AlertError from "./AlertError";
 import PropTypes from "prop-types";
 
-export default function InputTextFeild(props) {
+export default function InputTextField(props) {
   let { name, type, placeholder, label, changeHandler, validation } = props;
   let { regex, errorMessage } = validation ? validation : {};
   let [isvalid, setIsValid] = useState(true);
-  const inputHandler = (e) => {
+  const inputChangeHandler = (e) => {
     setIsValid(true);
   };
 
-  const blurHandler = (e) => {
+  const inputBlurHandler = (e) => {
     if (e.target.value === "") {
       setIsValid(false);
     }
@@ -22,7 +22,7 @@ export default function InputTextFeild(props) {
   };
 
   return (
-    <Form.Group controlId="">
+    <Form.Group controlId={name}>
       <Row>
         <Col lg={6} md={6}>
           <Label name={name} label={label} />
@@ -30,11 +30,11 @@ export default function InputTextFeild(props) {
         <Col lg={6} md={6}>
           <Form.Control
             type={type}
-            data-test='input-text-feild'
+            data-test='input-text-field'
             name={name}
             placeholder={placeholder}
-            onChange={(e) => inputHandler(e)}
-            onBlur={(e) => blurHandler(e)}
+            onChange={(e) => inputChangeHandler(e)}
+            onBlur={(e) => inputBlurHandler(e)}
             max={100}
           />
         </Col>
@@ -51,7 +51,7 @@ export default function InputTextFeild(props) {
   );
 }
 
-InputTextFeild.protoTypes = {
+InputTextField.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,

@@ -1,11 +1,11 @@
 import {shallow} from 'enzyme'
-import SelectFeild from '../FormComponents/SelectFeild'
+import SelectField from '../FormComponents/SelectField'
 
-describe('select feild component', ()=> {
+describe('select field component', ()=> {
     const optionsValues=  ["India", "srilanka", "Algeria", "Andorra"]
     const changeHandlerSpy = jest.fn();
-    const wrapper = shallow(<SelectFeild values={optionsValues} changeHandler={changeHandlerSpy}/>)
-    const Select =  wrapper.find(`[data-test='select-feild']`)
+    const wrapper = shallow(<SelectField values={optionsValues} changeHandler={changeHandlerSpy}/>)
+    const Select =  wrapper.find(`[data-test='select-field']`)
     it('should render correctly', ()=> {
         expect(wrapper).toMatchSnapshot();
         expect(wrapper).not.toBeNull()

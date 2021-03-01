@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { getInputFeild, getTextAreaFeild, getSelectFeild } from "./FormComponents/Utility";
+import {
+  getInputField,
+  getTextAreaField,
+  getSelectField,
+} from "./FormComponents/Utility";
 
 export default function DynamicForm(data) {
   let [submitFormData, setSubmitFormData] = useState({});
@@ -11,34 +15,36 @@ export default function DynamicForm(data) {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-  }
+  };
 
   let { fields } = { ...data.formData };
   const formSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
-    <div data-test='dynamic-form'>
-      <Form className= {'form'} data-test='form' onSubmit={formSubmit}>
+    <div data-test="dynamic-form">
+      <Form className={"form"} data-test="form" onSubmit={formSubmit}>
         {fields.map((formElement, i) => {
-          if (formElement.type === 'text' || formElement.type === 'number') {
-            return getInputFeild(formElement, i, changeHandler);
-          }
-          if (formElement.type === 'text_area') {
-            return getTextAreaFeild(formElement, i, changeHandler);
-          }
-          if (formElement.type === 'dropdown') {
-            return getSelectFeild(formElement, i, changeHandler);
+          switch (formElement.type) {
+            case "text" || "number":
+              return getInputField(formElement, i, changeHandler);
+              break;
+            case "text_area":
+              return getTextAreaField(formElement, i, changeHandler);
+              break;
+            case "dropdown":
+              return getSelectField(formElement, i, changeHandler);
+              break;
           }
         })}
         <Button
-          style={{marginTop: "30px"}}
+          style={{ marginTop: "30px" }}
           variant="secondary"
           type="submit"
           disabled={!isValidForm}
           role="submit"
-          className={'submit-button'}
+          className={"submit-button"}
         >
           submit
         </Button>

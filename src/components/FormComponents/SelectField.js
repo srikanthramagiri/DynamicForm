@@ -4,7 +4,7 @@ import AlertError from "./AlertError";
 import Label from "./Label";
 import PropTypes from "prop-types";
 
-export default function SelectFeild(props) {
+export default function SelectField(props) {
   let { values, validation, label, name, changeHandler } = props;
   let { regex, errorMessage } = validation ? validation : {};
   let [isValidSelect, setIsValidSelect] = useState(true);
@@ -37,7 +37,7 @@ export default function SelectFeild(props) {
       <Col lg={6} md={6}>
         <Form.Control
           as={'select'}
-          data-test='select-feild'
+          data-test='select-field'
           value={country}
           name={name}
           onChange={(e) => onChangeHandler(e)}
@@ -61,7 +61,7 @@ export default function SelectFeild(props) {
   );
 }
 
-SelectFeild.protoTypes = {
+SelectField.propTypes = {
   values: PropTypes.array,
   validation: PropTypes.object,
   label: PropTypes.string,

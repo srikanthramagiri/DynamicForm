@@ -1,9 +1,9 @@
 import React from 'react'
-import InputTextFeild from "./InputTextFeild";
-import InputTextAreaFeild from "./InputTextAreaFeild";
-import SelectFeild from "./SelectFeild";
+import InputTextField from "./InputTextField";
+import InputTextAreaField from "./InputTextAreaField";
+import SelectField from "./SelectField";
 
-export function getInputFeild(formEle, i, changeHandler) {
+export function getInputField(formEle, i, changeHandler) {
     let {
         type,
         name,
@@ -14,7 +14,7 @@ export function getInputFeild(formEle, i, changeHandler) {
       } = formEle;
 
       return (
-        <InputTextFeild
+        <InputTextField
           type={type}
           name={name}
           placeholder={placeholder}
@@ -23,11 +23,11 @@ export function getInputFeild(formEle, i, changeHandler) {
           changeHandler={changeHandler}
           key={i}
           validation={validation}
-        ></InputTextFeild>
+        ></InputTextField>
       );
 }
 
-export function getTextAreaFeild(formEle, i, changeHandler) {
+export function getTextAreaField(formEle, i, changeHandler) {
     let {
         type,
         name,
@@ -39,7 +39,7 @@ export function getTextAreaFeild(formEle, i, changeHandler) {
         validation,
       } = formEle;
       return (
-        <InputTextAreaFeild
+        <InputTextAreaField
           key={i}
           type={type}
           name={name}
@@ -54,10 +54,10 @@ export function getTextAreaFeild(formEle, i, changeHandler) {
       );
 }
 
-export function getSelectFeild(formEle, i, changeHandler) {
+export function getSelectField(formEle, i, changeHandler) {
     let { values, validation, name, label } = formEle;
     return (
-      <SelectFeild
+      <SelectField
         name={name}
         label={label}
         values={values}

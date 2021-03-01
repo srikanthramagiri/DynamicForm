@@ -7,8 +7,8 @@ export default function AlertError(props) {
   return <Alert variant={variant}> {message} </Alert>;
 }
 
-AlertError.protoTypes = {
-  varian: PropTypes.string,
+AlertError.propTypes = {
+  variant: PropTypes.string,
   message: PropTypes.string
 }
 

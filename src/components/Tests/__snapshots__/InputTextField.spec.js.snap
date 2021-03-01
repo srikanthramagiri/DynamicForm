@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`input text field component should render correctly 1`] = `ShallowWrapper {}`;
-
-exports[`input text field should render correctly 1`] = `ShallowWrapper {}`;

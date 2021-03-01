@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
-import InputTextAreaFeild from '../FormComponents/InputTextAreaFeild'
+import InputTextAreaField from '../FormComponents/InputTextAreaField'
 
-describe('input text Area feild component', ()=> {
+describe('input text Area field component', ()=> {
     const changeHandlerSpy = jest.fn();
-    const wrapper = shallow(<InputTextAreaFeild changeHandler={changeHandlerSpy}/>)
-    const InputTextArea =  wrapper.find(`[data-test='input-text-area-feild']`)
+    const wrapper = shallow(<InputTextAreaField changeHandler={changeHandlerSpy}/>)
+    const InputTextArea =  wrapper.find(`[data-test='input-text-area-field']`)
     it('should render correctly', ()=> {
         expect(wrapper).toMatchSnapshot();
         expect(wrapper).not.toBeNull()
