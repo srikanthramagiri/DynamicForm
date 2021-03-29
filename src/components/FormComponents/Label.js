@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function Label(props) {
   let {  label } = props;
-  return <Form.Label >{label}</Form.Label>;
+  return <Form.Label >{label }</Form.Label>;
 }
 
 Label.propTypes = {
